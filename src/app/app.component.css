@@ -1,0 +1,12 @@
+/* Estilos para el componente */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}

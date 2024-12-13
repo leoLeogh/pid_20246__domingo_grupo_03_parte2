@@ -1,0 +1,111 @@
+<div class="container mt-5">
+  <h2 class="text-center">Registrar Usuario</h2>
+  
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <!-- Nombre -->
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        [ngClass]="{'is-invalid': !registroForm.get('nombre').valid && registroForm.get('nombre').touched}"
+      />
+      <div *ngIf="!registroForm.get('nombre').valid && registroForm.get('nombre').touched" class="invalid-feedback">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <!-- Apellido -->
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        type="text"
+        id="apellido"
+        class="form-control"
+        formControlName="apellido"
+        [ngClass]="{'is-invalid': !registroForm.get('apellido').valid && registroForm.get('apellido').touched}"
+      />
+      <div *ngIf="!registroForm.get('apellido').valid && registroForm.get('apellido').touched" class="invalid-feedback">
+        El apellido es obligatorio.
+      </div>
+    </div>
+
+    <!-- Correo electrónico -->
+    <div class="form-group">
+      <label for="email">Correo Electrónico</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        formControlName="email"
+        [ngClass]="{'is-invalid': !registroForm.get('email').valid && registroForm.get('email').touched}"
+      />
+      <div *ngIf="!registroForm.get('email').valid && registroForm.get('email').touched" class="invalid-feedback">
+        El correo electrónico es obligatorio y debe ser válido.
+      </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input
+        type="password"
+        id="contrasena"
+        class="form-control"
+        formControlName="contrasena"
+        [ngClass]="{'is-invalid': !registroForm.get('contrasena').valid && registroForm.get('contrasena').touched}"
+      />
+      <div *ngIf="!registroForm.get('contrasena').valid && registroForm.get('contrasena').touched" class="invalid-feedback">
+        La contraseña es obligatoria.
+      </div>
+    </div>
+
+    <!-- Teléfono -->
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input
+        type="text"
+        id="telefono"
+        class="form-control"
+        formControlName="telefono"
+        [ngClass]="{'is-invalid': !registroForm.get('telefono').valid && registroForm.get('telefono').touched}"
+      />
+      <div *ngIf="!registroForm.get('telefono').valid && registroForm.get('telefono').touched" class="invalid-feedback">
+        El teléfono es obligatorio.
+      </div>
+    </div>
+
+    <!-- Dirección -->
+    <div class="form-group">
+      <label for="direccion">Dirección</label>
+      <input
+        type="text"
+        id="direccion"
+        class="form-control"
+        formControlName="direccion"
+        [ngClass]="{'is-invalid': !registroForm.get('direccion').valid && registroForm.get('direccion').touched}"
+      />
+      <div *ngIf="!registroForm.get('direccion').valid && registroForm.get('direccion').touched" class="invalid-feedback">
+        La dirección es obligatoria.
+      </div>
+    </div>
+
+    <!-- Estado -->
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <select
+        id="estado"
+        class="form-control"
+        formControlName="estado"
+      >
+        <option value="ACTIVO">Activo</option>
+        <option value="INACTIVO">Inactivo</option>
+      </select>
+    </div>
+
+    <!-- Botón de registro -->
+    <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">Registrar</button>
+  </form>
+</div>
