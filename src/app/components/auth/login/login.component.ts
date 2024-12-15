@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         .subscribe({
           next: (res) => {
             console.log("Response: ", res);
-            this.route.navigate(['/home']);
+            this.route.navigate(['/proyecto']);
           },
           error: (err: HttpErrorResponse) => {
             this.alertaError("Correo o contraseña incorrecta");
@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /*
   register() {
     if (this.formRegister.valid) {
       this._loginService.registrar(this.formRegister.value)
@@ -77,6 +78,7 @@ export class LoginComponent implements OnInit {
         });
     }
   }
+  */
 
   alertaError(message: string) {
     Swal.fire({

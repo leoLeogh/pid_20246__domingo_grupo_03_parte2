@@ -1,21 +1,42 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private apiUrl = 'http://localhost:3000/api';
+  private baseUrl = environment.url;
 
-  constructor(private http: HttpClient) { }
+  private login: string = `${this.baseUrl}/login`
 
-  ingresar(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, data);
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  ingresar(request : any): Observable<any> {
+    return this.http.post(`${this.login}`, request, {
+      observe: 'response'
+    }).pipe(map((response : HttpResponse<any>) => {
+      const body = response.body;
+      const headers = response.headers;
+
+      const beaberToken = headers.get('Authorization');
+      const token = beaberToken.replace('Bearer ', '');
+      localStorage.setItem('token', token);
+      return body;
+    }))
   }
 
-  registrar(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, data);
-  }
+ token(){
+    return localStorage.getItem('token');
+ }
+
+ logout() {
+  localStorage.removeItem('token');
+}
+
 }

@@ -1,11 +1,79 @@
-.login{
-  width: 50%;
-  padding-top: 100px;
-  margin: auto;
-}
-
-.login h2{
-  text-align: center;
+/* Estilos generales para el contenedor */
+.container {
+  max-width: 400px;
+  margin: 50px auto;
   padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
+/* Estilo para los encabezados */
+.container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos para las etiquetas */
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Estilos para los inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos para los botones */
+button {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo específico para el botón de alternar modo */
+button:nth-of-type(2) {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  margin-top: 15px;
+  padding: 0;
+  text-decoration: underline;
+  text-align: center;
+}
+
+button:nth-of-type(2):hover {
+  color: #0056b3;
+}
